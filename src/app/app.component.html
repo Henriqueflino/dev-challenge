@@ -1,0 +1,126 @@
+<div class="center container mt-3">
+  <img
+    src="https://uploaddeimagens.com.br/images/003/846/881/original/logo_multisearch.png?1651150389"
+  />
+  <div class="search-box">
+    <div class="input-group md-form form-sm form-2 pl-0">
+      <input
+        class="form-control my-0 py-2 red-border"
+        type="search"
+        placeholder="Faça sua pesquisa"
+        id="search-input"
+      />
+      <span class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="Mudarestado('MeusCards');"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-search"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+            />
+          </svg>
+        </button>
+      </span>
+    </div>
+  </div>
+
+  <div class="cards" id="MeusCards" style="display:none">
+    <p class="searchText mt-3">Foram encontrados {{qtdResultados}} resultados:</p>
+    <div class="card sales-oders mt-3">
+      <div class="card-header">Pedidos de Venda 
+        <small class="float-sm-right">({{salesOrders.length}} itens encontrados)</small>
+      </div>
+      <div class="card-body">
+         <table class="table table-striped" id="tabela">  
+          <tbody>
+            <tr *ngFor="let salesOrder of salesOrders">  
+              <td><font color="red">{{ salesOrder.SalesOrderID }}</font></td>
+              <td>{{ salesOrder.DeliveryDate }}</td>
+              <td>{{ salesOrder.Customer }}</td>
+              <td>{{ salesOrder.MaterialId }}</td>
+              <td>{{ salesOrder.MaterialName }}</td>
+              <td>{{ salesOrder.Quantity }} Pç</td>
+              <td>R$ {{ salesOrder.TotalValue }}</td> 
+            </tr>  
+          </tbody>  
+        </table>
+      </div>
+    </div>
+    <div class="card purchase-orders mt-2">
+      <div class="card-header">Pedidos de Compra
+       <small class="float-sm-right">({{purchaseOrders.length}} itens encontrados)</small>
+     </div>
+      <div class="card-body">
+         <table class="table table-striped"id="tabela">  
+          <tbody>  
+            <tr *ngFor="let purchaseOrder of purchaseOrders">  
+              <td><font color="red">{{ purchaseOrder.PurchaseOrderID }}</font></td>  
+              <td>{{ purchaseOrder.DeliveryDate }}</td>
+              <td>{{ purchaseOrder.Supplier }}</td>
+              <td>{{ purchaseOrder.MaterialId }}</td>
+              <td>{{ purchaseOrder.MaterialName }}</td>
+              <td>{{ purchaseOrder.Quantity }} Pç</td>
+              <td>R$ {{ purchaseOrder.TotalCost }}</td>
+            </tr>  
+          </tbody>  
+        </table>
+      </div>
+    </div>
+    <div class="card materials mt-2">
+      <div class="card-header">Produtos 
+        <small class="float-sm-right">({{materials.length}} itens encontrados)</small>
+      </div>
+      <div class="card-body">
+         <table class="table table-striped"id="tabela">  
+          <tbody>  
+            <tr *ngFor="let material of materials">  
+              <td width="20%"><font color="red">{{ material.MaterialID }}</font></td>  
+              <td style="text-align: left;">{{ material.MaterialName }}</td>
+            </tr>  
+          </tbody>  
+        </table>
+      </div>
+    </div>
+    <div class="card equipments mt-2">
+      <div class="card-header">Equipamentos
+        <small class="float-sm-right">({{equipments.length}} itens encontrados)</small>
+      </div>
+      <div class="card-body">
+          <table class="table table-striped">  
+          <tbody>  
+            <tr *ngFor="let equipment of equipments">  
+              <td width="20%"><font color="red">{{ equipment.EquipmentID }}</font></td>  
+              <td style="text-align: left;">{{ equipment.EquipmentName }}</td>
+            </tr>  
+          </tbody>  
+        </table>
+      </div>
+    </div>
+    <div class="card workforce mt-2">
+      <div class="card-header">Mão de Obra
+        <small class="float-sm-right">({{workforce.length}} itens encontrados)</small>
+      </div>
+      <div class="card-body">
+         <table class="table table-striped"id="tabela">  
+          <tbody>  
+            <tr *ngFor="let workforce of workforce">  
+              <td width="20%"><font color="red">{{ workforce.WorkforceID }}</font></td>  
+              <td style="text-align: left;">{{ workforce.Name }}</td>
+              <td>{{ workforce.Shift }}</td>
+            </tr>  
+          </tbody>  
+        </table>
+      </div>
+    </div>
+  </div>
+ 
+</div>

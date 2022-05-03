@@ -1,0 +1,33 @@
+p {
+  font-family: Lato;
+}
+img {
+  margin: auto;
+}
+.search-box {
+  width: 50%;
+  margin: auto;
+}
+.cards {
+  width: 50%;
+  margin: auto;
+}
+.center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+}
+.small-text {
+  text-align: left;
+}
+.textcard{
+  width: 50%;
+min-width: 250px;
+display: inline-block;
+vertical-align: le;
+}
+.card-body{
+  padding: 0;
+}
+
